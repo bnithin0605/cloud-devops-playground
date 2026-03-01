@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Profile</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h2>User Profile</h2>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for m in messages %}
+            <li>{{ m }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>First Name:</strong> {{ user.firstname }}</p>
+    <p><strong>Last Name:</strong> {{ user.lastname }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Address:</strong> {{ user.address }}</p>
+
+    <hr style="margin: 20px 0;">
+
+    <h3>Upload Limerick.txt</h3>
+
+    <form method="POST" action="/upload/{{ user.username }}" enctype="multipart/form-data">
+      <input type="file" name="file" accept=".txt" required>
+      <button type="submit">Upload</button>
+    </form>
+
+    {% if user.word_count %}
+      <p><strong>Word Count:</strong> {{ user.word_count }}</p>
+      <a href="/download/{{ user.username }}">
+        <button type="button">Download Limerick.txt</button>
+      </a>
+    {% endif %}
+
+    <p class="footer-text">
+      <a href="/logout">Logout</a>
+    </p>
+  </div>
+</body>
+</html>
+

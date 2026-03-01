@@ -1,0 +1,18 @@
+Word Count Analysis
+===================
+
+Total words in IF.txt: 301
+Total words in AlwaysRememberUsThisWay.txt: 242
+Grand Total Words: 543
+
+Top 3 words in IF.txt:
+you: 20
+and: 20
+if: 14
+
+Top 3 words in AlwaysRememberUsThisWay.txt (Contractions Split):
+i: 15
+the: 13
+t: 9
+
+Container IP Address: 172.17.0.2
